@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+}
+
+body {
+  background-color: #f3f3f5;
+}
+
+.first {
+  width: 80%;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchbar {
+  position: relative;
+}
+
+.searchbar input {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  border: 1px solid #d1d1d1;
+}
+
+.searchbar input:focus {
+  outline: none !important;
+  border: 1px solid #3c5dca;
+  box-shadow: 0 0 10px #719ece;
+  border: none;
+}
+
+.searchbar i {
+  color: #3c5dca;
+  top: 7px;
+  left: 10.5rem;
+  position: absolute;
+}
+
+.heading h1 {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .first {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+  }
+  .searchbar {
+    margin-top: 12px;
+  }
+}
+
+@media screen and (min-width: 270px) and (max-width: 500px) {
+  .heading h1 {
+    font-size: 1.2rem;
+  }
+}
+
+/* second  */
+
+.second {
+  background-color: #fff;
+  margin: 2rem auto;
+  width: 80%;
+  box-shadow: 0px 0px 1px 0px #999;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.second > div {
+  /* flex: auto; */
+  padding: 18px;
+}
+
+.location,
+.price,
+.property,
+.searchbtn {
+  flex: 15%;
+}
+
+.when {
+  flex: 20%;
+}
+
+p span i {
+  color: #3c5dca;
+}
+
+div.second span {
+  margin-top: 10px;
+  height: 50px;
+  border: 0.1px solid #f1f1f1;
+}
+
+.searchbtn button {
+  background-color: #3c5dca;
+  color: white;
+  font-weight: 800;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .second {
+    width: 90%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .main {
+    flex-wrap: wrap;
+  }
+
+  .second > div {
+    flex: 50%;
+  }
+
+  div.second span.bar {
+    display: none;
+  }
+  .searchbtn button {
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+select {
+  border: none;
+}
+
+select:focus {
+  border: none;
+}
+
+.searchbtn button:hover {
+  background-color: #0a298e;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* for main */
+
+.main {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem auto;
+  justify-content: flex-start;
+  /* background-color: lightgreen; */
+}
+
+@media screen and (max-width: 550px) {
+  .main {
+    justify-content: center;
+  }
+}

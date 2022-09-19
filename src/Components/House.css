@@ -1,0 +1,90 @@
+.main {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem auto;
+  justify-content: flex-start;
+  /* background-color: lightgreen; */
+}
+
+.housecard {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  transition: box-shadow 0.3s;
+  margin-left: 1%;
+  margin-top: 16px;
+  width: 32%;
+  /* box-shadow: 0 0 10px #fff; */
+  box-shadow: 0 0 4px 2px #fff;
+  /* background-color: lightblue; */
+}
+.housecard:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  cursor: pointer;
+}
+
+div.myimg img {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.horizontal-bar {
+  width: 90%;
+  margin: 8px auto;
+  height: 1px;
+  background-color: #d1d1d1;
+}
+
+div.hdetails > p {
+  margin-top: 10px;
+  margin-left: 5%;
+}
+
+p.hprice b {
+  color: #3c5dca;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+p.harea {
+  font-weight: 800;
+}
+
+p.hprice,
+p.hdescription {
+  color: #706d6d;
+  font-size: 12px;
+}
+
+div.details {
+  display: flex;
+  margin-left: 5%;
+  margin-bottom: 16px;
+  align-items: baseline;
+}
+
+div.details > i {
+  color: #3c5dca;
+}
+div.details > p {
+  color: #706d6d;
+  font-weight: 600;
+}
+div.details > * {
+  font-size: 10px;
+  margin: 0 4px;
+}
+@media screen and (max-width: 768px) {
+  .housecard {
+    width: 48%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .housecard {
+    width: 80%;
+    margin-top: 1rem;
+  }
+}
