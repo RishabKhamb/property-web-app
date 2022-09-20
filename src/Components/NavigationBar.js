@@ -37,6 +37,9 @@ const NavigationBar = () => {
             <button className="btn-1">Login</button>
             <button className="btn-2">Sign up</button>
           </div>
+          <div className="ham">
+            <i className="fa-sharp fa-solid fa-bars"></i>
+          </div>
         </nav>
       </div>
     </>

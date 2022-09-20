@@ -88,6 +88,13 @@ a:hover {
   color: #222;
 }
 
+/* hamburger */
+
+div.ham i {
+  display: none;
+  font-size: 1.5rem;
+}
+
 /* navbar buttons */
 
 .actions {
@@ -146,20 +153,31 @@ li#rent a {
 
 @media screen and (max-width: 768px) {
   nav {
+    padding: 16px;
     width: 100%;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 10vh;
   }
-  ul {
-    margin-top: 5rem;
-    width: 100%;
+
+  div.ham i {
+    display: inline-block;
   }
 
   .actions {
-    margin-top: 2rem;
+    justify-content: flex-start;
   }
+
+  ul {
+    display: none;
+    /* margin-top: 5rem;
+    width: 100%; */
+  }
+
+  /* .actions {
+    margin-top: 2rem;
+  } */
+
   /* li#rent {
       padding: 0px 30px;
     } */

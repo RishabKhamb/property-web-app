@@ -84,186 +84,36 @@ const Section = () => {
     setSearchProperty(event.target.value);
   };
 
-  // const locationHandler = (event) => {
-  //   let selectedLocation = event.target.value;
-
-  //   if (selectedLocation === "All") {
-  //     setData(DUMMY_DATA);
-  //   } else if (selectedLocation === "Florida") {
-  //     let myData = [...data];
-  //     myData = DUMMY_DATA.filter((item) => {
-  //       return item.location === "Florida";
-  //     });
-  //     setData(myData);
-  //   } else if (selectedLocation === "Texas") {
-  //     let myData = [...data];
-  //     myData = DUMMY_DATA.filter((item) => {
-  //       return item.location === "Texas";
-  //     });
-  //     setData(myData);
-  //   } else if (selectedLocation === "California") {
-  //     let myData = [...data];
-  //     myData = DUMMY_DATA.filter((item) => {
-  //       return item.location === "California";
-  //     });
-  //     setData(myData);
-  //   } else {
-  //     let myData = [...data];
-  //     myData = myData.filter((item) => {
-  //       return item.location === selectedLocation;
-  //     });
-  //     console.log(myData);
-  //     setData(myData);
-  //   }
-  // };
-
-  // const amountHandler = (e) => {
-  //   let myAmount = e.target.value;
-  //   console.log(myAmount);
-  //   let myData = [...data];
-  //   switch (myAmount) {
-  //     case "2000":
-  //       myData = DUMMY_DATA.filter((item) => {
-  //         return item.price < 2000;
-  //       });
-  //       setData(myData);
-  //       break;
-  //     case "6000":
-  //       myData = DUMMY_DATA.filter((item) => {
-  //         return item.price > 2000 && item.price < 6000;
-  //       });
-  //       setData(myData);
-  //       break;
-  //     case "12000":
-  //       myData = DUMMY_DATA.filter((item) => {
-  //         return item.price > 6000 && item.price < 12000;
-  //       });
-  //       setData(myData);
-  //       break;
-  //     default:
-  //       setData(DUMMY_DATA);
-  //       break;
-  //   }
-  // };
-
   const submitHandler = () => {
     console.log("i am submit btnm");
-    let myData = [...data];
+    let myData = DUMMY_DATA;
+    // let myData = [...data];
+    // filter for location
 
-    if (locate === "California" && rent === "2000") {
-      myData = DUMMY_DATA.filter((item) => {
-        return item.location === locate && item.price < 2000;
-      });
-      setData(myData);
-    } else if (locate === "California" && rent === "6000") {
-      myData = DUMMY_DATA.filter((item) => {
-        return (
-          item.location === locate && item.price > 2000 && item.price < 6000
-        );
-      });
-      setData(myData);
-    } else if (locate === "California" && rent === "12000") {
-      myData = DUMMY_DATA.filter((item) => {
-        return (
-          item.location === locate && item.price > 6000 && item.price < 12000
-        );
-      });
-      setData(myData);
-    } else if (locate === "Cleveland" && rent === "2000") {
-      myData = DUMMY_DATA.filter((item) => {
-        return item.location === locate && item.price < 2000;
-      });
-      setData(myData);
-    } else if (locate === "Cleveland" && rent === "6000") {
-      myData = DUMMY_DATA.filter((item) => {
-        return (
-          item.location === locate && item.price > 2000 && item.price < 6000
-        );
-      });
-      setData(myData);
-    } else if (locate === "Cleveland" && rent === "12000") {
-      myData = DUMMY_DATA.filter((item) => {
-        return (
-          item.location === locate && item.price > 6000 && item.price < 12000
-        );
-      });
-      setData(myData);
-    } else if (locate === "Florida" && rent === "2000") {
-      myData = DUMMY_DATA.filter((item) => {
-        return item.location === locate && item.price < 2000;
-      });
-      setData(myData);
-    } else if (locate === "Florida" && rent === "6000") {
-      myData = DUMMY_DATA.filter((item) => {
-        return (
-          item.location === locate && item.price > 2000 && item.price < 6000
-        );
-      });
-      setData(myData);
-    } else if (locate === "Florida" && rent === "12000") {
-      myData = DUMMY_DATA.filter((item) => {
-        return (
-          item.location === locate && item.price > 6000 && item.price < 12000
-        );
-      });
-      setData(myData);
-    } else if (locate === "Texas" && rent === "2000") {
-      myData = DUMMY_DATA.filter((item) => {
-        return item.location === locate && item.price < 2000;
-      });
-      setData(myData);
-    } else if (locate === "Texas" && rent === "6000") {
-      myData = DUMMY_DATA.filter((item) => {
-        return (
-          item.location === locate && item.price > 2000 && item.price < 6000
-        );
-      });
-      setData(myData);
-    } else if (locate === "Texas" && rent === "12000") {
-      myData = DUMMY_DATA.filter((item) => {
-        return (
-          item.location === locate && item.price > 6000 && item.price < 12000
-        );
-      });
-      setData(myData);
-    } else if (locate === "Florida") {
-      myData = DUMMY_DATA.filter((item) => {
+    if (locate) {
+      myData = myData.filter((item) => {
         return item.location === locate;
       });
-      setData(myData);
-    } else if (locate === "Texas") {
-      myData = DUMMY_DATA.filter((item) => {
-        return item.location === locate;
-      });
-      setData(myData);
-    } else if (locate === "California") {
-      myData = DUMMY_DATA.filter((item) => {
-        return item.location === locate;
-      });
-      setData(myData);
-    } else if (locate === "Cleveland") {
-      myData = DUMMY_DATA.filter((item) => {
-        return item.location === locate;
-      });
-      setData(myData);
-    } else if (rent === "2000") {
-      myData = DUMMY_DATA.filter((item) => {
-        return item.price < 2000;
-      });
-      setData(myData);
-    } else if (rent === "6000") {
-      myData = DUMMY_DATA.filter((item) => {
-        return item.price > 2000 && item.price < 6000;
-      });
-      setData(myData);
-    } else if (rent === "12000") {
-      myData = DUMMY_DATA.filter((item) => {
-        return item.price > 6000 && item.price < 12000;
-      });
-      setData(myData);
-    } else {
-      setData(DUMMY_DATA);
     }
+    // filter for rent
+    if (rent) {
+      if (rent === "2000") {
+        myData = myData.filter((item) => {
+          return item.price < 2000;
+        });
+      }
+      if (rent === "6000") {
+        myData = myData.filter((item) => {
+          return item.price > 2000 && item.price < 6000;
+        });
+      }
+      if (rent === "12000") {
+        myData = myData.filter((item) => {
+          return item.price > 6000 && item.price < 12000;
+        });
+      }
+    }
+    setData(myData);
   };
 
   let content;
