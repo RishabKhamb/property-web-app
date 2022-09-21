@@ -11,7 +11,7 @@ const DUMMY_DATA = [
     name: "Palm Harbor",
     address: "2699 Green Valley, Highland Lake, FL",
     location: "Florida",
-    bed: "3",
+    bed: "2",
     bathroom: "2",
     sqfeet: "5x7.2m",
     id: "q1",
@@ -22,7 +22,7 @@ const DUMMY_DATA = [
     name: "Beverly Springfield",
     address: "2821 Lake Sevilla, Palm Harbor, TX",
     location: "Texas",
-    bed: "4",
+    bed: "3",
     bathroom: "2",
     sqfeet: "6x7.5m",
     id: "q2",
@@ -33,7 +33,7 @@ const DUMMY_DATA = [
     name: "Faulkner Ave",
     address: "909 Woodland St, Michigan, TX",
     location: "Texas",
-    bed: "4",
+    bed: "5",
     bathroom: "3",
     sqfeet: "8x10m",
     id: "q3",
@@ -55,7 +55,7 @@ const DUMMY_DATA = [
     name: "Covington Ave",
     address: "4279 Lincoln Valley, Mary Lake, CL",
     location: "Cleveland",
-    bed: "2",
+    bed: "3",
     bathroom: "2",
     sqfeet: "6x7m",
     id: "q5",
@@ -66,7 +66,7 @@ const DUMMY_DATA = [
     name: "Springfield",
     address: "388 S Lake, Pasadena, CA",
     location: "California",
-    bed: "4",
+    bed: "3",
     bathroom: "3",
     sqfeet: "6x7.2m",
     id: "q6",
@@ -79,6 +79,7 @@ const Section = () => {
   const [data, setData] = useState(DUMMY_DATA);
   const [locate, setLocate] = useState("");
   const [rent, setRent] = useState("");
+  const [bed, setBed] = useState("");
 
   const searchHandler = (event) => {
     setSearchProperty(event.target.value);
@@ -89,14 +90,17 @@ const Section = () => {
     let myData = DUMMY_DATA;
     // let myData = [...data];
     // filter for location
-
-    if (locate) {
+    if (locate == "All") {
+      setData(DUMMY_DATA);
+    } else if (locate) {
       myData = myData.filter((item) => {
         return item.location === locate;
       });
     }
     // filter for rent
-    if (rent) {
+    if (rent == "All") {
+      setData(DUMMY_DATA);
+    } else if (rent) {
       if (rent === "2000") {
         myData = myData.filter((item) => {
           return item.price < 2000;
@@ -112,6 +116,16 @@ const Section = () => {
           return item.price > 6000 && item.price < 12000;
         });
       }
+    }
+
+    // filter for rooms
+
+    if (bed == "All") {
+      setData(DUMMY_DATA);
+    } else if (bed) {
+      myData = myData.filter((item) => {
+        return item.bed === bed;
+      });
     }
     setData(myData);
   };
@@ -180,7 +194,7 @@ const Section = () => {
             </select>
           </div>
           <span className="bar"></span>
-          <div className="when">
+          {/* <div className="when">
             <p>When</p>
 
             <p>
@@ -189,7 +203,7 @@ const Section = () => {
                 <i className="fa-solid fa-circle-arrow-down"></i>
               </span>
             </p>
-          </div>
+          </div> */}
           <span className="bar"></span>
           <div className="price">
             <p>Price</p>
@@ -207,12 +221,16 @@ const Section = () => {
           <span className="bar"></span>
           <div className="property">
             <p>Property Type</p>
-            <p>
-              Houses
-              <span>
-                <i className="fa-solid fa-circle-arrow-down"></i>
-              </span>
-            </p>
+            <select
+              onChange={(e) => {
+                setBed(e.target.value);
+              }}
+            >
+              <option value="All">All</option>
+              <option value="2">2 Bhk</option>
+              <option value="3">3 Bhk</option>
+              <option value="5">5 Bhk</option>
+            </select>
           </div>
           <span className="bar"></span>
           <div className="searchbtn">
@@ -228,3 +246,36 @@ const Section = () => {
 };
 
 export default Section;
+
+// const submitHandler = () => {
+//   console.log("i am submit btnm");
+//   let myData = DUMMY_DATA;
+//   // let myData = [...data];
+//   // filter for location
+//   if(locate == "All"){
+//     setData(DUMMY_DATA);
+//   }else if(locate){
+//     myData = myData.filter((item) => {
+//       return item.location === locate;
+//     });
+//   }
+//   // filter for rent
+//   if (rent) {
+//     if(rent == "All"){
+//       setData(DUMMY_DATA);
+//     }else if (rent === "2000") {
+//       myData = myData.filter((item) => {
+//         return item.price < 2000;
+//       });
+//     } else if (rent === "6000") {
+//       myData = myData.filter((item) => {
+//         return item.price > 2000 && item.price < 6000;
+//       });
+//     } else if (rent === "12000") {
+//       myData = myData.filter((item) => {
+//         return item.price > 6000 && item.price < 12000;
+//       });
+//     }
+//   }
+//   setData(myData);
+// };

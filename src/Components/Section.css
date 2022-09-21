@@ -129,9 +129,8 @@ div.second span {
     display: none;
   }
   .searchbtn button {
-    width: 40%;
+    width: 100px;
     display: block;
-    margin: 0 auto;
   }
 }
 
