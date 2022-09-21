@@ -80,6 +80,7 @@ const Section = () => {
   const [locate, setLocate] = useState("");
   const [rent, setRent] = useState("");
   const [bed, setBed] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const searchHandler = (event) => {
     setSearchProperty(event.target.value);
@@ -87,6 +88,7 @@ const Section = () => {
 
   const submitHandler = () => {
     console.log("i am submit btnm");
+    setLoading(true);
     let myData = DUMMY_DATA;
     // let myData = [...data];
     // filter for location
@@ -128,34 +130,39 @@ const Section = () => {
       });
     }
     setData(myData);
+    setLoading(false);
   };
 
   let content;
 
-  content = data
-    .filter((ele) => {
-      return (
-        ele.name.toLowerCase().includes(searchProperty.toLowerCase()) ||
-        ele.price.toLowerCase().includes(searchProperty.toLowerCase()) ||
-        ele.address.toLowerCase().includes(searchProperty.toLowerCase()) ||
-        ele.bed.toLowerCase().includes(searchProperty.toLowerCase()) ||
-        ele.sqfeet.toLowerCase().includes(searchProperty.toLowerCase())
-      );
-    })
-    .map((item) => {
-      return (
-        <House
-          key={item.id}
-          pics={item.pics}
-          price={item.price}
-          name={item.name}
-          address={item.address}
-          bed={item.bed}
-          bath={item.bathroom}
-          size={item.sqfeet}
-        />
-      );
-    });
+  if (loading) {
+    content = <h1>Loading...</h1>;
+  } else {
+    content = data
+      .filter((ele) => {
+        return (
+          ele.name.toLowerCase().includes(searchProperty.toLowerCase()) ||
+          ele.price.toLowerCase().includes(searchProperty.toLowerCase()) ||
+          ele.address.toLowerCase().includes(searchProperty.toLowerCase()) ||
+          ele.bed.toLowerCase().includes(searchProperty.toLowerCase()) ||
+          ele.sqfeet.toLowerCase().includes(searchProperty.toLowerCase())
+        );
+      })
+      .map((item) => {
+        return (
+          <House
+            key={item.id}
+            pics={item.pics}
+            price={item.price}
+            name={item.name}
+            address={item.address}
+            bed={item.bed}
+            bath={item.bathroom}
+            size={item.sqfeet}
+          />
+        );
+      });
+  }
 
   return (
     <>
